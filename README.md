@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/retr0h/cookbook-parted.png?branch=master)](https://travis-ci.org/retr0h/cookbook-parted)
+
 Description
 ============
 
