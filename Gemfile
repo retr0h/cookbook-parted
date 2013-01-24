@@ -1,3 +1,5 @@
 source :rubygems
 
-gem 'test-kitchen', :git => 'git@github.com:opscode/test-kitchen.git'
+gem "berkshelf",  "~> 1.0.4"
+gem "chefspec",   "~> 0.9.0"
+gem "foodcritic", "~> 1.6.1"

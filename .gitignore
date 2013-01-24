@@ -1,4 +1,2 @@
 .bundle
-.cache
-.kitchen
-bin
+.cookbooks/
