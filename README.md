@@ -22,6 +22,37 @@ Usage
 ]
 ```
 
+Use parted to create an gpt disk label on /dev/sdb
+
+```ruby
+parted_disk "/dev/sdb" do
+  label_type "gpt"
+
+  action :mklabel
+end
+```
+
+Use parted to make a primary ext4 partition on /dev/sdb
+
+```ruby
+parted_disk "/dev/sdb" do
+  part_type   "primary" # logical or extended
+  file_system "ext4"
+
+  action :mkpart
+end
+```
+
+Make an ext4 file system on /dev/sdb1
+
+```ruby
+parted_disk "/dev/sdb1" do
+  file_system "ext4"
+
+  action :mkpart
+end
+```
+
 default
 ----
 
