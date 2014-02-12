@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/retr0h/cookbook-parted.png?branch=master)](https://travis-ci.org/retr0h/cookbook-parted)
+[![Dependency Status](https://gemnasium.com/retr0h/cookbook-parted.png)](https://gemnasium.com/retr0h/cookbook-parted)
 
 Description
 ============
