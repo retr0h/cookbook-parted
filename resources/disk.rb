@@ -1,8 +1,9 @@
+# encoding: UTF-8
 #
 # Cookbook Name:: raid
 # Resource:: disk
 #
-# Copyright 2012-2013, John Dewey
+# Copyright 2012-2014, John Dewey
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,10 +20,10 @@
 
 actions :mklabel, :mkpart, :mkfs
 
-attribute :device, :kind_of => String, :name_attribute => true
-attribute :label_type, :kind_of => String, :default => "gpt"
-attribute :file_system, :kind_of => String, :default => "ext4"
-attribute :part_type, :kind_of => String, :default => "primary"
+attribute :device, kind_of: String, name_attribute: true
+attribute :label_type, kind_of: String, default: 'gpt'
+attribute :file_system, kind_of: String, default: 'ext4'
+attribute :part_type, kind_of: String, default: 'primary'
 
 def initialize(*args)
   super

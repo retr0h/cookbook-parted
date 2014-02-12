@@ -1,0 +1,13 @@
+AllCops:
+  Includes:
+    - ./**/*.rb
+  Excludes:
+    - vendor/**
+
+Encoding:
+  Exclude:
+    - metadata.rb
+    - Gemfile
+
+WordArray:
+  MinSize: 3

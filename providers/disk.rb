@@ -1,8 +1,9 @@
+# encoding: UTF-8
 #
 # Cookbook Name:: raid
 # Provider:: parted
 #
-# Copyright 2012-2013, John Dewey
+# Copyright 2012-2014, John Dewey
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,18 +19,18 @@
 #
 
 action :mklabel do
-  execute "parted #{new_resource.device} --script -- mklabel #{new_resource.label_type}" do
+  execute "parted #{new_resource.device} --script -- mklabel #{new_resource.label_type}" do # rubocop:disable LineLength
     new_resource.updated_by_last_action(true)
 
-    not_if "parted #{new_resource.device} --script -- print |grep 'Partition Table: #{new_resource.label_type}'"
+    not_if "parted #{new_resource.device} --script -- print |grep 'Partition Table: #{new_resource.label_type}'" # rubocop:disable LineLength
   end
 end
 
 action :mkpart do
-  execute "parted #{new_resource.device} --script -- mkpart #{new_resource.part_type} #{new_resource.file_system} 1 -1" do
+  execute "parted #{new_resource.device} --script -- mkpart #{new_resource.part_type} #{new_resource.file_system} 1 -1" do # rubocop:disable LineLength
     new_resource.updated_by_last_action(true)
 
-    not_if "parted #{new_resource.device} --script -- print |grep #{new_resource.part_type}"
+    not_if "parted #{new_resource.device} --script -- print |grep #{new_resource.part_type}" # rubocop:disable LineLength
   end
 end
 

@@ -1,4 +1,3 @@
-language: ruby
 rvm:
   - 1.9.3
-script: ./run_tests.bash
+  - 2.1.0
