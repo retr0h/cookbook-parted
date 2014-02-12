@@ -1,11 +1,13 @@
-require "chefspec"
+# encoding: UTF-8
 
-describe "parted::default" do
+require_relative 'spec_helper'
+
+describe 'parted::default' do
   before do
-    @chef_run = ::ChefSpec::ChefRunner.new.converge "parted::default"
+    @chef_run = ChefSpec::Runner.new.converge 'parted::default'
   end
 
-  it "installs package" do
-    @chef_run.should upgrade_package "parted"
+  it 'installs package' do
+    @chef_run.should upgrade_package 'parted'
   end
 end
