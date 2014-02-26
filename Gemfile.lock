@@ -37,7 +37,7 @@ GEM
     celluloid-io (0.14.1)
       celluloid (>= 0.14.1)
       nio4r (>= 0.4.5)
-    chef (11.10.0)
+    chef (11.10.4)
       chef-zero (~> 1.7, >= 1.7.2)
       diff-lcs (~> 1.2, >= 1.2.4)
       erubis (~> 2.7)

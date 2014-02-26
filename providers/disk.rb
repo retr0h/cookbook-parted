@@ -30,7 +30,7 @@ action :mkpart do
   execute "parted #{new_resource.device} --script -- mkpart #{new_resource.part_type} #{new_resource.file_system} 1 -1" do # rubocop:disable LineLength
     new_resource.updated_by_last_action(true)
 
-    not_if "parted #{new_resource.device} --script -- print |grep #{new_resource.part_type}" # rubocop:disable LineLength
+    not_if "parted #{new_resource.device} --script -- print |grep -i #{new_resource.part_type}" # rubocop:disable LineLength
   end
 end
 
@@ -38,6 +38,6 @@ action :mkfs do
   execute "mkfs.#{new_resource.file_system} #{new_resource.device}" do
     new_resource.updated_by_last_action(true)
 
-    not_if "file -sL #{new_resource.device} |grep #{new_resource.part_type}"
+    not_if "file -sL #{new_resource.device} |grep -i #{new_resource.file_system}"
   end
 end
