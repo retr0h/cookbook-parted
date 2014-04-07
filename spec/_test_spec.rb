@@ -9,15 +9,15 @@ describe 'parted::_test' do
   end
 
   it 'makes a label' do
-    chef_run.should run_execute 'parted /dev/sdb --script -- mklabel gpt'
+    expect(chef_run).to run_execute 'parted /dev/sdb --script -- mklabel gpt'
   end
 
   it 'partitions' do
     cmd = 'parted /dev/sdb --script -- mkpart primary ext4 1 -1'
-    chef_run.should run_execute cmd
+    expect(chef_run).to run_execute cmd
   end
 
   it 'creates fs' do
-    chef_run.should run_execute 'mkfs.ext4 /dev/sdb1'
+    expect(chef_run).to run_execute 'mkfs.ext4 /dev/sdb1'
   end
 end
