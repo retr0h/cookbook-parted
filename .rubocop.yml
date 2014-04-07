@@ -1,7 +1,7 @@
 AllCops:
-  Includes:
+  Include:
     - ./**/*.rb
-  Excludes:
+  Exclude:
     - vendor/**
 
 Encoding:
