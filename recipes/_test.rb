@@ -18,14 +18,17 @@
 # limitations under the License.
 #
 
-parted_disk '/dev/sdb' do
+parted_disk 'making label' do
+  device '/dev/sdb'
   action :mklabel
 end
 
-parted_disk '/dev/sdb' do
+parted_disk 'making part' do
+  device '/dev/sdb'
   action :mkpart
 end
 
-parted_disk '/dev/sdb1' do
+parted_disk 'making fs' do
+  device '/dev/sdb1'
   action :mkfs
 end
