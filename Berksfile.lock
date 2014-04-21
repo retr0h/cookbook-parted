@@ -1,7 +1,7 @@
-{
-  "sources": {
-    "parted": {
-      "path": "."
-    }
-  }
-}
+DEPENDENCIES
+  parted
+    path: .
+    metadata: true
+
+GRAPH
+  parted (2.0.0)
