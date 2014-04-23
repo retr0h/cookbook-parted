@@ -32,7 +32,7 @@ action :mkpart do
 
     # Number  Start   End    Size   File system  Name  Flags
     #  1      17.4kB  537GB  537GB               xfs
-    not_if "parted #{new_resource.device} --script -- print |grep #{new_resource.file_system}"
+    not_if "parted #{new_resource.device} --script -- print |grep #{new_resource.part_type}"
   end
 end
 
