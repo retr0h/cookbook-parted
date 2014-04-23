@@ -38,6 +38,6 @@ action :mkfs do
   execute "mkfs.#{new_resource.file_system} #{new_resource.device}" do
     new_resource.updated_by_last_action(true)
 
-    not_if "file -sL #{new_resource.device} |grep -i #{new_resource.file_system}"
+    not_if "file -sL #{new_resource.device} |grep -i #{new_resource.file_system}"# rubocop:disable LineLength
   end
 end
