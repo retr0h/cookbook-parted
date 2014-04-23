@@ -11,3 +11,6 @@ Encoding:
 
 WordArray:
   MinSize: 3
+
+LineLength:
+  Max: 150 # hate doing this shit
