@@ -24,7 +24,7 @@ describe 'parted::_test' do
   end
 
   it 'does not partition when exists' do
-    stub_command('parted /dev/sdb --script -- print |grep ext4')
+    stub_command('parted /dev/sdb --script -- print |grep primary')
       .and_return true
     cmd = 'parted /dev/sdb --script -- mkpart primary ext4 1 -1'
     expect(chef_run).not_to run_execute cmd
