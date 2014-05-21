@@ -38,4 +38,15 @@ describe 'parted::_test' do
     stub_command('file -sL /dev/sdb1 |grep -i ext4').and_return true
     expect(chef_run).not_to run_execute 'mkfs.ext4 /dev/sdb1'
   end
+
+  it 'sets a flag' do
+    expect(chef_run).to run_execute 'parted /dev/sdb --script -- set 1 boot on'
+  end
+
+  it 'does not set a flag when already set' do
+    stub_command("parted /dev/sdb --script -- print |grep 'boot'")
+      .and_return true
+    expect(chef_run).not_to run_execute 'parted /dev/sdb --script -- set 1 boot on'
+  end
+
 end

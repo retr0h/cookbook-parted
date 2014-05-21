@@ -46,3 +46,11 @@ action :mkfs do
     not_if "file -sL #{new_resource.device} |grep -i #{new_resource.file_system}"
   end
 end
+
+action :setflag do
+  execute "parted #{new_resource.device} --script -- set 1 #{new_resource.flag_name} on" do
+    new_resource.updated_by_last_action(true)
+
+    not_if "parted #{new_resource.device} --script -- print |grep #{new_resource.flag_name}"
+  end
+end
