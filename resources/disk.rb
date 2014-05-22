@@ -1,6 +1,6 @@
 # encoding: UTF-8
 #
-# Cookbook Name:: raid
+# Cookbook Name:: parted
 # Resource:: disk
 #
 # Copyright 2012-2014, John Dewey
@@ -18,12 +18,13 @@
 # limitations under the License.
 #
 
-actions :mklabel, :mkpart, :mkfs
+actions :mklabel, :mkpart, :mkfs, :setflag
 
 attribute :device, kind_of: String, name_attribute: true
 attribute :label_type, kind_of: String, default: 'gpt'
 attribute :file_system, kind_of: String, default: 'ext4'
 attribute :part_type, kind_of: String, default: 'primary'
+attribute :flag_name, kind_of: String, default: 'boot'
 
 def initialize(*args)
   super

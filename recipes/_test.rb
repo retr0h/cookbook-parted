@@ -32,3 +32,8 @@ parted_disk 'making fs' do
   device '/dev/sdb1'
   action :mkfs
 end
+
+parted_disk 'setting flag' do
+  device '/dev/sdb'
+  action :setflag
+end
