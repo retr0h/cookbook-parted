@@ -34,6 +34,6 @@ parted_disk 'making fs' do
 end
 
 parted_disk 'setting flag' do
-  device '/dev/sdb1'
+  device '/dev/sdb'
   action :setflag
 end

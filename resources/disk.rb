@@ -1,6 +1,6 @@
 # encoding: UTF-8
 #
-# Cookbook Name:: raid
+# Cookbook Name:: parted
 # Resource:: disk
 #
 # Copyright 2012-2014, John Dewey

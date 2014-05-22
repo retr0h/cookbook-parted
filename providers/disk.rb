@@ -1,6 +1,6 @@
 # encoding: UTF-8
 #
-# Cookbook Name:: raid
+# Cookbook Name:: parted
 # Provider:: parted
 #
 # Copyright 2012-2014, John Dewey
@@ -51,6 +51,8 @@ action :setflag do
   execute "parted #{new_resource.device} --script -- set 1 #{new_resource.flag_name} on" do
     new_resource.updated_by_last_action(true)
 
-    not_if "parted #{new_resource.device} --script -- print |grep #{new_resource.flag_name}"
+    # Number  Start   End    Size   Type     File system  Flags
+    #  1      1049kB  107GB  107GB  primary               boot
+    not_if "parted #{new_resource.device} --script -- print |grep '#{new_resource.flag_name}'"
   end
 end
