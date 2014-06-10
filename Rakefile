@@ -13,7 +13,7 @@ RSpec::Core::RakeTask.new(:unit) do |t|
   end.join(' ')
 end
 
-Rubocop::RakeTask.new
+RuboCop::RakeTask.new
 
 task test: [:unit, :foodcritic, :rubocop]
 task default: [:test]
