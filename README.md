@@ -50,7 +50,7 @@ Make an ext4 file system on /dev/sdb1
 parted_disk "/dev/sdb1" do
   file_system "ext4"
 
-  action :mkpart
+  action :mkfs
 end
 ```
 
