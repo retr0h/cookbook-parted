@@ -21,6 +21,7 @@
 action :mklabel do
   execute "parted #{new_resource.device} --script -- mklabel #{new_resource.label_type}" do
     new_resource.updated_by_last_action(true)
+    returns [0, 1]
 
     not_if "parted #{new_resource.device} --script -- print |grep 'Partition Table: #{new_resource.label_type}'"
   end
@@ -29,6 +30,7 @@ end
 action :mkpart do
   execute "parted #{new_resource.device} --script -- mkpart #{new_resource.part_type} #{new_resource.file_system} 1 -1" do
     new_resource.updated_by_last_action(true)
+    returns [0, 1]
 
     # Number  Start   End    Size   File system  Name  Flags
     #  1      17.4kB  537GB  537GB               xfs
@@ -50,6 +52,7 @@ end
 action :setflag do
   execute "parted #{new_resource.device} --script -- set 1 #{new_resource.flag_name} on" do
     new_resource.updated_by_last_action(true)
+    returns [0, 1]
 
     # Number  Start   End    Size   Type     File system  Flags
     #  1      1049kB  107GB  107GB  primary               boot
