@@ -54,6 +54,18 @@ parted_disk "/dev/sdb1" do
 end
 ```
 
+Make an ext4 file system on /dev/sdb1 with a size of 800GB (default in MB)
+
+```ruby
+parted_disk "/dev/sdb1" do
+  file_system "ext4"
+  part_start  "1"
+  part_end    "819200"
+
+  action :mkfs
+end
+```
+
 Set the raid flag on file system on /dev/sdb1
 ```ruby
 parted_disk "/dev/sdb1" do

@@ -27,7 +27,8 @@ action :mklabel do
 end
 
 action :mkpart do
-  execute "parted #{new_resource.device} --script -- mkpart #{new_resource.part_type} #{new_resource.file_system} 1 -1" do
+  execute "parted #{new_resource.device} --script -- mkpart #{new_resource.part_type} #{new_resource.file_system} \
+#{new_resource.part_start} #{new_resource.part_end}" do
     new_resource.updated_by_last_action(true)
 
     # Number  Start   End    Size   File system  Name  Flags
