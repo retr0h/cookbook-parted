@@ -4,4 +4,4 @@ DEPENDENCIES
     metadata: true
 
 GRAPH
-  parted (2.0.0)
+  parted (2.1.0)
