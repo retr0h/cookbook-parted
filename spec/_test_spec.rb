@@ -5,7 +5,7 @@ require_relative 'spec_helper'
 describe 'parted::_test' do
   before { stub_command(/.*/) }
   let(:chef_run) do
-    ChefSpec::Runner.new(step_into: ['parted_disk']).converge(described_recipe)
+    ChefSpec::ServerRunner.new(step_into: ['parted_disk']).converge(described_recipe)
   end
 
   it 'makes a label' do
