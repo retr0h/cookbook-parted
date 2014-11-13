@@ -1,5 +1,6 @@
-[![Build Status](https://travis-ci.org/retr0h/cookbook-parted.png?branch=master)](https://travis-ci.org/retr0h/cookbook-parted)
-[![Dependency Status](https://gemnasium.com/retr0h/cookbook-parted.png)](https://gemnasium.com/retr0h/cookbook-parted)
+[![Build Status](http://img.shields.io/travis/retr0h/cookbook-parted.svg?style=flat-square)](https://travis-ci.org/retr0h/cookbook-parted)
+[![Dependency Status](http://img.shields.io/gemnasium/retr0h/cookbook-parted.svg?style=flat-square)](https://gemnasium.com/retr0h/cookbook-parted)
+[![Chef](http://img.shields.io/cookbook/v/parted.svg?style=flat-square)](https://supermarket.getchef.com/cookbooks/parted)
 
 Description
 ============
