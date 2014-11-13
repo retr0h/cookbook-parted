@@ -1,6 +1,7 @@
 require 'foodcritic'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
+require 'stove/rake_task'
 
 FoodCritic::Rake::LintTask.new do |t|
   t.options = { fail_tags: ['any'] }
@@ -14,6 +15,7 @@ RSpec::Core::RakeTask.new(:unit) do |t|
 end
 
 RuboCop::RakeTask.new
+Stove::RakeTask.new
 
 task test: [:unit, :foodcritic, :rubocop]
 task default: [:test]
