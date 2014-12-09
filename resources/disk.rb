@@ -23,6 +23,7 @@ actions :mklabel, :mkpart, :mkfs, :setflag
 attribute :device, kind_of: String, name_attribute: true
 attribute :label_type, kind_of: String, default: 'gpt'
 attribute :file_system, kind_of: String, default: 'ext4'
+attribute :fs_options, kind_of: String, default: ''
 attribute :part_type, kind_of: String, default: 'primary'
 attribute :part_start, kind_of: String, default: '1'
 attribute :part_end, kind_of: String, default: '-1'

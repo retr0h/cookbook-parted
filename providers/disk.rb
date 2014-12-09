@@ -38,7 +38,7 @@ action :mkpart do
 end
 
 action :mkfs do
-  execute "mkfs.#{new_resource.file_system} #{new_resource.device}" do
+  execute "mkfs.#{new_resource.file_system} #{new_resource.fs_options} #{new_resource.device}" do
     new_resource.updated_by_last_action(true)
 
     # /dev/sdb1: SGI XFS filesystem data (blksz 4096, inosz 256, v2 dirs)
