@@ -48,5 +48,4 @@ describe 'parted::_test' do
       .and_return true
     expect(chef_run).not_to run_execute 'parted /dev/sdb --script -- set 1 boot on'
   end
-
 end
