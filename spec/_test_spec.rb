@@ -5,7 +5,7 @@ require_relative 'spec_helper'
 describe 'parted::_test' do
   before { stub_command(/.*/) }
   let(:chef_run) do
-    ChefSpec::Runner.new(step_into: ['parted_disk']).converge(described_recipe)
+    ChefSpec::ServerRunner.new(step_into: ['parted_disk']).converge(described_recipe)
   end
 
   it 'makes a label' do
@@ -48,5 +48,4 @@ describe 'parted::_test' do
       .and_return true
     expect(chef_run).not_to run_execute 'parted /dev/sdb --script -- set 1 boot on'
   end
-
 end
