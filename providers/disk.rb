@@ -18,6 +18,8 @@
 # limitations under the License.
 #
 
+use_inline_resources
+
 action :mklabel do
   execute "parted #{new_resource.device} --script -- mklabel #{new_resource.label_type}" do
     new_resource.updated_by_last_action(true)
