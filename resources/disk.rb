@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-actions :mklabel, :mkpart, :mkfs, :setflag
+actions :mklabel, :mkpart, :mkfs, :setflag, :nothing
 
 attribute :device, kind_of: String, name_attribute: true
 attribute :label_type, kind_of: String, default: 'gpt'
