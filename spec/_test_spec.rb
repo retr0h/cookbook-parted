@@ -2,7 +2,6 @@
 
 require_relative 'spec_helper'
 
-# rubocop:disable BlockLength
 describe 'parted::_test' do
   before { stub_command(/.*/) }
   let(:chef_run) do
@@ -20,11 +19,7 @@ describe 'parted::_test' do
   end
 
   it 'partitions' do
-    cmd = 'parted /dev/sdb --script -- mkpart primary ext4 1 -1'
-    expect(chef_run).to run_execute cmd
-  end
-
-  it 'does not partition when exists' do
+    allow(File).to receive(:exist?).and_return(false)
     cmd = 'parted /dev/sdb --script -- mkpart primary ext4 1 -1'
     expect(chef_run).to run_execute cmd
   end
