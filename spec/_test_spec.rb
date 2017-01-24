@@ -2,6 +2,7 @@
 
 require_relative 'spec_helper'
 
+# rubocop:disable BlockLength
 describe 'parted::_test' do
   before { stub_command(/.*/) }
   let(:chef_run) do
