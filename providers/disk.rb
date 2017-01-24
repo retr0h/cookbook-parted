@@ -29,13 +29,21 @@ action :mklabel do
 end
 
 action :mkpart do
+  part_number = new_resource.part_number
+  device = new_resource.device
+
+  (1..(part_number - 1)).each do |partition|
+    block_file = "#{new_resource.device}#{partition}"
+    raise "Parititions #{device}1 to #{device}#{part_number - 1} should exist" \
+      unless ::File.exist?(block_file) && ::File.stat(block_file).blockdev?
+  end
+
+  block_file = "#{new_resource.device}#{new_resource.part_number}"
+
   execute "parted #{new_resource.device} --script -- mkpart #{new_resource.part_type} #{new_resource.file_system} \
 #{new_resource.part_start} #{new_resource.part_end}" do
     new_resource.updated_by_last_action(true)
-
-    # Number  Start   End    Size   File system  Name  Flags
-    #  1      17.4kB  537GB  537GB               xfs
-    not_if "parted #{new_resource.device} --script -- print |sed '1,/^Number/d' |grep #{new_resource.part_type}"
+    not_if { ::File.exist?(block_file) && ::File.stat(block_file).blockdev? }
   end
 end
 
