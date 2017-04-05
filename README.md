@@ -72,7 +72,7 @@ Set the raid flag on file system on /dev/sdb1
 ```ruby
 parted_disk "/dev/sdb1" do
   flag_name "raid"
-  action: setflag
+  action :setflag
 end
 ```
 
